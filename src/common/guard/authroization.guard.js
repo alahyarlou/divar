@@ -8,7 +8,7 @@ require("dotenv").config();
 const Authrization = async (req, res, next) => {
   try {
     // get token from cookie
-    const token = req?.cookie?.accessToken;
+    const token = req?.cookies?.accessToken || undefined;
 
     // check token is exist
     if (!token)
@@ -17,9 +17,12 @@ const Authrization = async (req, res, next) => {
     // verify token
     const data = jwt.verify(token, process.env.JWT_SECERET_KEY);
 
+
     if (typeof data === "object" && "id" in data) {
       //find user from id
-      const user = await userModel.findOne(data.id, { otp: 0 }).lean();
+      const user = await userModel
+        .findOne({ _id: data.id }, { otp: 0, __v: 0, updatedAt: 0 })
+        .lean();
 
       // not found user
       if (!user)

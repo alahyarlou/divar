@@ -1,6 +1,6 @@
 function NotFoundHandler(app) {
   app.use((req, res, next) => {
-    res.status.json({
+    res.json({
       message: "Not found route!",
     });
   });

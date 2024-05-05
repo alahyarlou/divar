@@ -53,7 +53,7 @@ class AuthController {
   // clear cookies and logout
   async logout(req, res, next) {
     try {
-      return res.clearCookie(CookiesNames.accessToken).status(200).json({
+      return res.satus(200).clearCookie(CookiesNames.accessToken).json({
         message: "successfully logout",
       });
     } catch (error) {

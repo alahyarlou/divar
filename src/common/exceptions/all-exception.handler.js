@@ -4,7 +4,7 @@ function AllExceptionHandler(app) {
 
     if (!status || isNaN(+status) || status > 511 || status < 200) status = 500;
 
-    res.status.json({
+    res.json({
       message: err?.message ?? err?.stack ?? "InternalServerError",
     });
   });

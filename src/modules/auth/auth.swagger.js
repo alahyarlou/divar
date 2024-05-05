@@ -90,3 +90,21 @@
  *       '500':
  *         description: Internal Server Error
  */
+
+/**
+ * @swagger
+ * /auth/logout:
+ *   get:
+ *     summary: logout user
+ *     tags: [Auth]
+ *     description: Endpoint for logout user's login
+ *     responses:
+ *       '200':
+ *         description: OK
+ *       '400':
+ *         description: Bad Request
+ *       '401':
+ *         description: Unauthorized
+ *       '500':
+ *         description: Internal Server Error
+ */
